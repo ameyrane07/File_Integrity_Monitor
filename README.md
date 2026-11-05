@@ -1,4 +1,3 @@
-```markdown
 # 🛡️ File Integrity & Security Monitoring System (FIM)
 
 A lightweight, host-based intrusion detection and integrity monitoring suite built in Python for Linux environments. This tool combines cryptographic file hashing, directory baseline snapshots, real-time tamper detection, and automated authentication log parsing to identify unauthorized file modifications and brute-force attacks.
