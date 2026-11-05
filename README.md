@@ -1,3 +1,4 @@
+```markdown
 # 🛡️ File Integrity & Security Monitoring System (FIM)
 
 A lightweight, host-based intrusion detection and integrity monitoring suite built in Python for Linux environments. This tool combines cryptographic file hashing, directory baseline snapshots, real-time tamper detection, and automated authentication log parsing to identify unauthorized file modifications and brute-force attacks.
@@ -21,7 +22,7 @@ This project bridges endpoint integrity verification with proactive log auditing
 * **Operating System**: Kali Linux / Debian-based Linux
 * **Language**: Python 3.x
 * **Core Libraries**: `hashlib`, `argparse`, `json`, `re`, `os`, `sys`, `collections` (Zero third-party dependencies required)
-* **Version Control**: Git & GitHub (`main` branch workflow via Personal Access Token)
+* **Version Control**: Git & GitHub (`main` branch workflow)
 
 ---
 
@@ -42,26 +43,57 @@ File_Integrity_Monitor/
 ├── main.py                  # Unified CLI orchestrator
 └── README.md                # Technical project documentation
 
-🚀 How to Run
-1. Clone the Repository
+```
+
+---
+
+## 🚀 How to Run
+
+### 1. Clone the Repository
+
+```bash
 git clone [https://github.com/ameyrane07/File_Integrity_Monitor.git](https://github.com/ameyrane07/File_Integrity_Monitor.git)
 cd File_Integrity_Monitor
 
-2. Run CLI Commands
-Compute a File's Cryptographic Hash
+```
+
+### 2. Run CLI Commands
+
+#### Compute a File's Cryptographic Hash
+
+```bash
 python3 main.py hash sample_auth.log
 
-Generate a Directory Baseline Snapshot
+```
+
+#### Generate a Directory Baseline Snapshot
+
+```bash
 python3 main.py baseline test_dir/ -o baseline.json
 
-Check Directory Integrity (Detect Tampering)
+```
+
+#### Check Directory Integrity (Detect Tampering)
+
+```bash
 python3 main.py verify -b baseline.json
 
-Audit Authentication Logs for Brute-Force Attacks
+```
+
+#### Audit Authentication Logs for Brute-Force Attacks
+
+```bash
 python3 main.py logs sample_auth.log -t 3
 
-📊 Sample Execution & Output
-1. Unified CLI Help Menu (python3 main.py --help)
+```
+
+---
+
+## 📊 Sample Execution & Output
+
+### 1. Unified CLI Help Menu (`python3 main.py --help`)
+
+```text
 usage: main.py [-h] {hash,baseline,verify,logs} ...
 
 Comprehensive File Integrity & Security Monitoring System
@@ -77,7 +109,11 @@ positional arguments:
 options:
   -h, --help            show this help message and exit
 
-2. Tamper Detection Output (python3 main.py verify)
+```
+
+### 2. Tamper Detection Output (`python3 main.py verify`)
+
+```text
 --- Integrity Verification Report ---
 Target Directory: /home/amey/Desktop/File_Integrity_Monitor/test_dir
 Status: ANOMALIES DETECTED
@@ -91,12 +127,27 @@ Status: ANOMALIES DETECTED
 [!] DELETED FILES:
     x /home/amey/Desktop/File_Integrity_Monitor/test_dir/auth.key
 
-3. Brute-Force Log Analysis (python3 main.py logs sample_auth.log -t 3)
+```
+
+### 3. Brute-Force Log Analysis (`python3 main.py logs sample_auth.log -t 3`)
+
+```text
 --- Authentication Log Analysis Report (sample_auth.log) ---
 IP: 192.168.1.100    Failures: 4    Users: ['root', 'amey', 'admin'] [ALERT: BRUTE-FORCE DETECTED]
 IP: 10.0.0.15        Failures: 1    Users: ['amey'] [NORMAL]
 
-🧠 Key Takeaways
- * Host-Based Intrusion Detection (HIDS): Real-time integrity verification prevents undetected persistence; even if an attacker alters one line of a script or drops a backdoor, the cryptographic checksum immediately triggers an anomaly alert.
- * Memory Efficiency in Security Tooling: Reading files in 64 KB binary chunks ensures that multi-gigabyte server files or database dumps can be verified without CPU starvation or Out-of-Memory (OOM) crashes.
- * Log Aggregation & Threat Detection: Automated log parsing bridges file monitoring with access monitoring, converting raw SSH failure logs into structured security alerts ready for automated IP blocking.
+```
+
+---
+
+## 🧠 Key Takeaways
+
+1. **Host-Based Intrusion Detection (HIDS)**: Real-time integrity verification prevents undetected persistence; even if an attacker alters one line of a script or drops a backdoor, the cryptographic checksum immediately triggers an anomaly alert.
+2. **Memory Efficiency in Security Tooling**: Reading files in 64 KB binary chunks ensures that multi-gigabyte server files or database dumps can be verified without CPU starvation or Out-of-Memory (OOM) crashes.
+3. **Log Aggregation & Threat Detection**: Automated log parsing bridges file monitoring with access monitoring, converting raw SSH failure logs into structured security alerts ready for automated IP blocking.
+
+---
+
+```
+
+```
